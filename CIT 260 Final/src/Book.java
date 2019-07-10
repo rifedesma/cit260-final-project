@@ -1,10 +1,16 @@
+import java.io.Serializable;
+
 /** Book derived class for entity
  * 
  * @author Purnell Darrell
  *
  */
-public class Book extends Media {
+public class Book extends Media implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4351567213874452358L;
 	private String authorName = "";
 	private String isbn = "";
 	
@@ -53,16 +59,9 @@ public class Book extends Media {
 	@Override
 	public String print()
 	{
-		return null;
+		return super.getTitleName() +"|" + authorName + "|" + super.getFormat().toUpperCase() + "|" + isbn + "\n";
 	}
 	
-	/** string for displaying on screen
-	 * 
-	 */
-	@Override
-	public String toString()
-	{
-		return null;
-	}
+	
 	
 }

@@ -53,11 +53,5 @@ public class Media {
 		return null;
 	}
 	
-	/** string for displaying on screen
-	 * 
-	 */
-	public String toString()
-	{
-		return null;
-	}
+	
 }

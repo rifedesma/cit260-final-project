@@ -31,6 +31,7 @@ public class DisplayMenu {
 	
 	public static int displayAndPromptEntryViewMenu()
 	{
+		System.out.println("");
 		System.out.println("1 - Enter entries");
 		System.out.println("2 - View entries");
 		System.out.println("3 - Back to library selection menu");
@@ -41,21 +42,93 @@ public class DisplayMenu {
 	}
 	
 	
-	public static void promptForEntry(Book book)
+	public static void promptForEntry(Book book, Library library)
 	{
 		System.out.println("Book");
 		System.out.println("");
-		System.out.print("Title name: ");
-		book.setTitleName(input.next());
+		promptForTitle(book);
 
-		System.out.print("Author name: ");
-		book.setAuthorName(input.next());
+		promptForAuthor(book);
 		
-		System.out.print("format (Hard, Soft, Audio): ");
-		book.setFormat(input.next());
+		promptFormatItem(book);
+			
+		promptForISBN(book);
 		
+		((BooksLibrary)library).print();
+	}
+
+	/** prompt for ISBN and saved to book object
+	 * 
+	 * @param book
+	 */
+	private static void promptForISBN(Book book) {
 		System.out.print("ISBN: ");
-		book.setIsbn(input.next());
+		String isbn = input.nextLine();
+		if (isbn.equals(""))
+		{
+			System.out.println("ISBN cannot be blank.");
+			input.hasNextLine();
+			promptForISBN(book);
+		}else
+		{
+			book.setIsbn(isbn);
+		}
+	}
+
+	/** prompt for author and saved to book object
+	 * 
+	 * @param book
+	 */
+	private static void promptForAuthor(Book book) {
+		System.out.print("Author name: ");
+		String author = input.nextLine();
+		if (author.equals(""))
+		{
+			System.out.println("Author cannot be blank.");
+			input.hasNextLine();
+			promptForAuthor(book);
+		}else
+		{
+			book.setAuthorName(author);
+		}
+	}
+
+	/** prompt for title and saved to book object
+	 * 
+	 * @param book
+	 */
+	private static void promptForTitle(Book book) {
+		System.out.print("Title name: ");
+		String title = input.nextLine();
+		if (title.equals(""))
+		{
+			System.out.println("Title cannot be blank.");
+			input.hasNextLine();
+			promptForTitle(book);
+		}else 
+		{
+			book.setTitleName(title);
+		}
+	}
+
+	/** prompt for format item and saved to book object
+	 * 
+	 * @param book
+	 */
+	private static void promptFormatItem(Book book) {
+		System.out.print("format (Hard, Soft, Audio): ");
+		String format = input.nextLine();
+		if (!format.equalsIgnoreCase("hard") && 
+				!format.equalsIgnoreCase("soft") &&
+				!format.equalsIgnoreCase("audio"))
+		{
+			System.out.println("Format must be either 'Hard, Soft or Audio'.");
+			promptFormatItem(book);
+		}else
+		{
+			
+			book.setFormat(format);
+		}
 	}
 	
 	
@@ -64,7 +137,7 @@ public class DisplayMenu {
 		String quit = "";
 		try
 		{
-			System.out.print("");
+			System.out.println("");
 			System.out.print("Enter 'q' to go back to options menu: ");
 			quit = input.next();
 			if (!quit.equalsIgnoreCase("q"))
