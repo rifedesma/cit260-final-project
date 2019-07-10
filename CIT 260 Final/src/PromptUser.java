@@ -1,8 +1,10 @@
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /** PromptUser class 
  * used for both A12dot2 and A12dot3 classes
+ * And now the Final project
  */
 public class PromptUser {
 
@@ -20,13 +22,16 @@ public class PromptUser {
 	{
 		int value = 0;
 		try {
-			System.out.println(message);
+			System.out.print(message);
 			value = input.nextInt();
 		}catch (InputMismatchException mismatchException)
 		{
 			System.out.println("Must enter a whole integer value, no period.");
 			input.nextLine();
 			value = promptForInteger(message);
+		}catch (NoSuchElementException noElement)
+		{
+			
 		}
 		
 		return value;
