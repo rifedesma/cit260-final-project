@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /** Displays menus 
@@ -21,6 +22,7 @@ public class DisplayMenu {
 		System.out.println("1 - Music");
 		System.out.println("2 - Movies");
 		System.out.println("3 - Books");
+		System.out.println("4 - Quit");
 		System.out.println("");
 		
 		//prompt for the library option
@@ -41,6 +43,8 @@ public class DisplayMenu {
 	
 	public static void promptForEntry(Book book)
 	{
+		System.out.println("Book");
+		System.out.println("");
 		System.out.print("Title name: ");
 		book.setTitleName(input.next());
 
@@ -54,4 +58,27 @@ public class DisplayMenu {
 		book.setIsbn(input.next());
 	}
 	
+	
+	public static String promptForView()
+	{
+		String quit = "";
+		try
+		{
+			System.out.print("");
+			System.out.print("Enter 'q' to go back to options menu: ");
+			quit = input.next();
+			if (!quit.equalsIgnoreCase("q"))
+			{
+				System.out.print("Must enter 'q' to go back.");
+				input.nextLine();
+				quit = promptForView();
+			}
+		}catch (NoSuchElementException nosuch)
+		{
+			System.out.print("Must enter 'q' to go back.");
+			input.nextLine();
+			quit = promptForView();
+		}
+		return quit;
+	}
 }

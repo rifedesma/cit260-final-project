@@ -1,4 +1,4 @@
-/** Library base class for complete library
+/** Library base class for library object
  * 
  * @author Purnell Darrell
  *
@@ -16,7 +16,7 @@ public class Library {
 		// display and prompt for menu value
 		int library = DisplayMenu.displayAndPromptLibraryMenu();
 		
-		if (library <= 0 || library >= 4)
+		if (library <= 0 || library >= 5)
 		{
 			System.out.println("Must enter a valid library number.");
 			displayAndPromptLibraryMenu();
@@ -41,7 +41,7 @@ public class Library {
 			((BooksLibrary)libraryObj).promptForEntry();
 		} else if (entryViewNumber == 2)
 		{
-			((BooksLibrary)libraryObj).view();
+			((BooksLibrary)libraryObj).promptForView();
 		} else
 		{
 			libraryMenu();
@@ -78,7 +78,7 @@ public class Library {
 				Library.processBookLibrary(libraryObj);
 				break;
 			default:
-				
+				//quit application, do nothing
 		}
 	
 	}

@@ -31,7 +31,9 @@ public class PromptUser {
 			value = promptForInteger(message);
 		}catch (NoSuchElementException noElement)
 		{
-			
+			System.out.println("Must enter a whole integer value, no period.");
+			input.nextLine();
+			value = promptForInteger(message);
 		}
 		
 		return value;

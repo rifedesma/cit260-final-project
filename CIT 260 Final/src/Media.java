@@ -44,4 +44,20 @@ public class Media {
 		this.format = format;
 	}
 	
+	
+	/** string for saving to file
+	 * 
+	 */
+	public String print()
+	{
+		return null;
+	}
+	
+	/** string for displaying on screen
+	 * 
+	 */
+	public String toString()
+	{
+		return null;
+	}
 }
