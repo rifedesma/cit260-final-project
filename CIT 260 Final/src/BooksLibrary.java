@@ -1,7 +1,7 @@
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
+
 
 /** Creates BooksLibrary object
  * 
@@ -11,12 +11,39 @@ import java.util.StringTokenizer;
 public class BooksLibrary extends Library {
 
 	private static final String FILE_NAME = "Books.txt";
-	private List<Book> booksLibrary = null;
+	private List<Media> booksLibrary = null;
 	private Book book = null;
 	
 	public BooksLibrary()
 	{
 		super();
+	}
+	
+	
+	/** Displays the Prompt Entry/View menu and
+	 * execute them on the BooksLibrary object.
+	 * @param libraryObj
+	 */
+	public void processBooksLibrary(Library libraryObj)
+	{
+		int entryViewNumber = DisplayMenu.displayAndPromptEntryViewMenu();
+		
+		if (entryViewNumber <= 0 || entryViewNumber >= 4)
+		{
+			System.out.println("Must enter a valid option number.");
+			processBooksLibrary(libraryObj);
+		}
+		
+		if (entryViewNumber == 1)
+		{
+			((BooksLibrary)libraryObj).promptForEntry();
+		} else if (entryViewNumber == 2)
+		{
+			((BooksLibrary)libraryObj).promptForView();
+		} else
+		{
+			libraryMenu();
+		}
 	}
 	
 	/** prompt for Book entry fields
@@ -55,7 +82,7 @@ public class BooksLibrary extends Library {
 	 */
 	public void view()
 	{
-		booksLibrary = new ArrayList<Book>();
+		booksLibrary = new ArrayList<Media>();
 		
 		//create/get file reference for filename
 		File booksFile = FileAccess.getFile(FILE_NAME);
@@ -69,9 +96,9 @@ public class BooksLibrary extends Library {
 		System.out.printf("%-35s %-35s %-10s %-20s\n", "Title", "Author", "Format", "ISBN");
 		System.out.printf("%-80s\n", "------------------------------------------------------------------------------------------------");
 		
-		for (Book item : booksLibrary)
+		for (Media item : booksLibrary)
 		{
-			System.out.printf("%-35s %-35s %-10s %-20s\n", item.getTitleName(), item.getAuthorName(), item.getFormat(), item.getIsbn());
+			System.out.printf("%-35s %-35s %-10s %-20s\n", item.getTitleName(), ((Book)item).getAuthorName(), item.getFormat(), ((Book)item).getIsbn());
 		}
 		
 	}
@@ -112,7 +139,7 @@ public class BooksLibrary extends Library {
 	 * 
 	 * @return
 	 */
-	public List<Book> getBooksLibrary() {
+	public List<Media> getBooksLibrary() {
 		return booksLibrary;
 	}
 	

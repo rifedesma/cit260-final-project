@@ -1,3 +1,5 @@
+
+
 import java.util.StringTokenizer;
 
 /** Library base class for library object
@@ -7,13 +9,17 @@ import java.util.StringTokenizer;
  */
 public class Library {
 
+		
 	protected Library()
 	{
 		
 	}
 	
 	
-
+	/** display the library menu
+	 * 
+	 * @return
+	 */
 	protected static int displayAndPromptLibraryMenu() {
 		// display and prompt for menu value
 		int library = DisplayMenu.displayAndPromptLibraryMenu();
@@ -28,28 +34,10 @@ public class Library {
 	}
 
 	
-	public static void processBooksLibrary(Library libraryObj)
-	{
-		int entryViewNumber = DisplayMenu.displayAndPromptEntryViewMenu();
-		
-		if (entryViewNumber <= 0 || entryViewNumber >= 4)
-		{
-			System.out.println("Must enter a valid option number.");
-			processBooksLibrary(libraryObj);
-		}
-		
-		if (entryViewNumber == 1)
-		{
-			((BooksLibrary)libraryObj).promptForEntry();
-		} else if (entryViewNumber == 2)
-		{
-			((BooksLibrary)libraryObj).promptForView();
-		} else
-		{
-			libraryMenu();
-		}
-	}
 	
+	/** method to return to the library menu from Entry/View menu
+	 * 
+	 */
 	public static void libraryMenu()
 	{
 		int libraryNumber = displayAndPromptLibraryMenu();
@@ -59,7 +47,10 @@ public class Library {
 	}
 
 
-
+	/** Create derived class of Library and invoke its execution method
+	 * 
+	 * @param library
+	 */
 	private static void createLibrary(int library)
 	{
 		Library libraryObj = null;
@@ -77,7 +68,7 @@ public class Library {
 			//Books
 			case 3:
 				libraryObj = new BooksLibrary();
-				Library.processBooksLibrary(libraryObj);
+				((BooksLibrary)libraryObj).processBooksLibrary(libraryObj);
 				break;
 			default:
 				//quit application, do nothing
