@@ -57,25 +57,12 @@ public class BooksLibrary extends Library {
 	{
 		booksLibrary = new ArrayList<Book>();
 		
+		//create/get file reference for filename
 		File booksFile = FileAccess.getFile(FILE_NAME);
 		if (booksFile != null)
 		{
 			List<String> fileData = FileAccess.readFromFile(booksFile);
-			for (String line : fileData)
-			{
-				try {
-					String[] elements = Library.parseLineToElementsArray(line);
-					Book book = new Book();
-					book.setTitleName(elements[0]);
-					book.setAuthorName(elements[1]);
-					book.setFormat(elements[2]);
-					book.setIsbn(elements[3]);
-					booksLibrary.add(book);
-				}catch (IndexOutOfBoundsException outOfBounds)
-				{
-					System.out.println("Cannot get data at index, out of bounds.");
-				}
-			}
+			createBookFromFileData(fileData);
 		}
 		
 		// print header
@@ -89,14 +76,42 @@ public class BooksLibrary extends Library {
 		
 	}
 
+	/** create the book object from the file data retrieved
+	 * 
+	 * @param fileData
+	 */
+	private void createBookFromFileData(List<String> fileData) {
+		for (String line : fileData)
+		{
+			try {
+				String[] elements = Library.parseLineToElementsArray(line);
+				Book book = new Book();
+				book.setTitleName(elements[0]);
+				book.setAuthorName(elements[1]);
+				book.setFormat(elements[2]);
+				book.setIsbn(elements[3]);
+				booksLibrary.add(book);
+			}catch (IndexOutOfBoundsException outOfBounds)
+			{
+				System.out.println("Cannot get data at index, out of bounds.");
+			}
+		}
+	}
 
+
+	/** return book object
+	 * 
+	 * @return
+	 */
 	public Book getBook() {
 		return book;
 	}
 
 
-
-
+	/** return bookslibrary object
+	 * 
+	 * @return
+	 */
 	public List<Book> getBooksLibrary() {
 		return booksLibrary;
 	}
