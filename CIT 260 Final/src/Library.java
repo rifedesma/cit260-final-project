@@ -1,3 +1,5 @@
+import java.util.StringTokenizer;
+
 /** Library base class for library object
  * 
  * @author Purnell Darrell
@@ -83,5 +85,22 @@ public class Library {
 	
 	}
 	
+	
+	/** parse the line into array of strings
+	 * 
+	 * @param line
+	 * @return
+	 */
+	protected static String[] parseLineToElementsArray(String line) {
+		String[] elements = new String[4];
+		StringTokenizer tokenizer = new StringTokenizer(line, "|");
+		int i = 0;
+		while (tokenizer.hasMoreElements())
+		{
+			elements[i] = (String)tokenizer.nextElement();
+			i++;
+		}
+		return elements;
+	}
 	
 }

@@ -64,7 +64,7 @@ public class BooksLibrary extends Library {
 			for (String line : fileData)
 			{
 				try {
-					String[] elements = parseLineToElementsArray(line);
+					String[] elements = Library.parseLineToElementsArray(line);
 					Book book = new Book();
 					book.setTitleName(elements[0]);
 					book.setAuthorName(elements[1]);
@@ -87,23 +87,6 @@ public class BooksLibrary extends Library {
 			System.out.printf("%-35s %-35s %-10s %-20s\n", item.getTitleName(), item.getAuthorName(), item.getFormat(), item.getIsbn());
 		}
 		
-	}
-
-	/** parse the line into array of strings
-	 * 
-	 * @param line
-	 * @return
-	 */
-	private String[] parseLineToElementsArray(String line) {
-		String[] elements = new String[4];
-		StringTokenizer tokenizer = new StringTokenizer(line, "|");
-		int i = 0;
-		while (tokenizer.hasMoreElements())
-		{
-			elements[i] = (String)tokenizer.nextElement();
-			i++;
-		}
-		return elements;
 	}
 
 
