@@ -26,7 +26,7 @@ public class BooksLibrary extends Library {
 	{
 		book = new Book();
 		DisplayMenu.promptForEntry(book, this);
-		processBookLibrary(this);
+		processBooksLibrary(this);
 	}
 	
 	/** prompt to quit view screen
@@ -38,7 +38,7 @@ public class BooksLibrary extends Library {
 		String quit = DisplayMenu.promptForView();
 		if (quit.equalsIgnoreCase("q"))
 		{
-			processBookLibrary(this);
+			processBooksLibrary(this);
 		}
 	}
 	

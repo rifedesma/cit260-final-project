@@ -28,14 +28,14 @@ public class Library {
 	}
 
 	
-	public static void processBookLibrary(Library libraryObj)
+	public static void processBooksLibrary(Library libraryObj)
 	{
 		int entryViewNumber = DisplayMenu.displayAndPromptEntryViewMenu();
 		
 		if (entryViewNumber <= 0 || entryViewNumber >= 4)
 		{
 			System.out.println("Must enter a valid option number.");
-			processBookLibrary(libraryObj);
+			processBooksLibrary(libraryObj);
 		}
 		
 		if (entryViewNumber == 1)
@@ -77,7 +77,7 @@ public class Library {
 			//Books
 			case 3:
 				libraryObj = new BooksLibrary();
-				Library.processBookLibrary(libraryObj);
+				Library.processBooksLibrary(libraryObj);
 				break;
 			default:
 				//quit application, do nothing
