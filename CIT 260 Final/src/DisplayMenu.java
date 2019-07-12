@@ -154,4 +154,141 @@ public class DisplayMenu {
 		}
 		return quit;
 	}
+	
+    public static void promptForMovieEntry(Movies movie, Library library)
+    {
+        System.out.println("Movie");
+        System.out.println("");
+        promptForMovieTitle(movie);
+
+        promptForMovieRating(movie);
+        
+        promptMovieFormat(movie);
+        
+        ((MoviesLibrary)library).print();
+    }
+    
+    public static void promptForMovieTitle(Movies movie) 
+    {
+        System.out.print("Title name: ");
+        String title = input.nextLine();
+        if (title.equals(""))
+        {
+            System.out.println("Title cannot be blank.");
+            input.hasNextLine();
+            promptForMovieTitle(movie);
+        }else 
+        {
+            movie.setTitleName(title);
+        }
+    }
+    
+    public static void promptForMovieRating(Movies movie) 
+    {
+        System.out.print("Movie Rating: ");
+        String title = input.nextLine();
+        if (title.equals(""))
+        {
+            System.out.println("Rating cannot be blank.");
+            input.hasNextLine();
+            promptForMovieTitle(movie);
+        }else 
+        {
+            movie.setRating(title);
+        }
+    }
+    
+    public static void promptMovieFormat(Movies movie) 
+    {
+        System.out.print("format (VHS, DVD, Blueray): ");
+        String format = input.nextLine();
+        if (!format.equalsIgnoreCase("vhs") && 
+                !format.equalsIgnoreCase("dvd") &&
+                !format.equalsIgnoreCase("blueray"))
+        {
+            System.out.println("Format must be either 'VHS, DVD or Blueray'.");
+            promptMovieFormat(movie);
+        }else
+        {
+            
+            movie.setFormat(format);
+        }
+    }
+    
+    public static void promptForMusicEntry(Music music, Library library)
+    {
+        System.out.println("Music");
+        System.out.println("");
+        promptForMusicTitle(music);
+
+        promptForMusicArtist(music);
+        
+        promptMusicFormat(music);
+            
+        promptForMusicISBN(music);
+        
+        ((MusicLibrary)library).print();
+    }
+
+    public static void promptForMusicTitle(Music music) 
+    {
+        System.out.print("Title name: ");
+        String title = input.nextLine();
+        if (title.equals(""))
+        {
+            System.out.println("Title cannot be blank.");
+            input.hasNextLine();
+            promptForMusicTitle(music);
+        }else 
+        {
+            music.setTitleName(title);
+        }
+    }
+
+    public static void promptForMusicArtist(Music music) 
+    {
+        System.out.print("Artist name: ");
+        String artist = input.nextLine();
+        if (artist.equals(""))
+        {
+            System.out.println("Artist's name cannot be blank.");
+            input.hasNextLine();
+            promptForMusicArtist(music);
+        }else 
+        {
+            music.setArtistName(artist);
+        }
+    }
+
+    public static void promptMusicFormat(Music music) 
+    {
+        System.out.print("format (MP3, Wav, Ogg): ");
+        String format = input.nextLine();
+        if (!format.equalsIgnoreCase("MP3") && 
+                !format.equalsIgnoreCase("Wav") &&
+                !format.equalsIgnoreCase("Ogg"))
+        {
+            System.out.println("Format must be either 'MP3, Wav or Ogg'.");
+            promptMusicFormat(music);
+        }else
+        {
+            music.setFormat(format);
+        }
+    }
+
+    public static void promptForMusicISBN(Music music) 
+    {
+        System.out.print("ISBN: ");
+        String isbn = input.nextLine();
+        if (isbn.equals(""))
+        {
+            System.out.println("ISBN cannot be blank.");
+            input.hasNextLine();
+            promptForMusicISBN(music);
+        }else
+        {
+            music.setIsbn(isbn);
+        }
+    }
+    
 }

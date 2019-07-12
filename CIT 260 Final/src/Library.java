@@ -59,11 +59,13 @@ public class Library {
 		{
 			//Music
 			case 1:
-				
+				libraryObj = new MusicLibrary();
+                ((MusicLibrary)libraryObj).processMusicLibrary(libraryObj);
 				break;
 			//Movies
 			case 2:
-			
+			    libraryObj = new MoviesLibrary();
+                ((MoviesLibrary)libraryObj).processMoviesLibrary(libraryObj);
 				break;
 			//Books
 			case 3:
