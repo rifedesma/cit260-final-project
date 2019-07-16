@@ -1,44 +1,38 @@
 
+/** Music 
+ * 
+ * @author Desma Rife
+ *
+ */
 
 public class Music extends Media{
 
     private String artist;
-    private String isbn;
     
-    Music() 
+    public Music() 
     {
-        
+        super();
     }
     
-    Music(String title, String artist, String isbn, String format) {
+    public Music(String title, String artist, String isbn, String format) {
         super(title, format);
         
         this.artist = artist;
-        this.isbn = isbn;
     }
     
-    void setArtistName(String artist)
+    public void setArtistName(String artist)
     {
         this.artist = artist;
     }
     
-    String getArtistName()
+    public String getArtistName()
     {
         return this.artist;
     }
     
-    void setIsbn(String isbn)
-    {
-        this.isbn = isbn;
-    }
-    
-    String getIsbn()
-    {
-        return this.isbn;
-    }
-    
+    @Override
     public String print()
     {
-        return super.getTitleName() +"|" + this.artist + "|" + super.getFormat().toUpperCase() + "|" + this.isbn + "\n";
+        return super.getTitleName() +"|" + this.artist + "|" + super.getFormat().toUpperCase() + "\n";
     }
 }

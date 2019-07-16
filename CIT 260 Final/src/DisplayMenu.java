@@ -131,7 +131,9 @@ public class DisplayMenu {
 		}
 	}
 	
-	
+	/** leave the media instruction's view
+     * 
+     */
 	public static String promptForView()
 	{
 		String quit = "";
@@ -155,10 +157,15 @@ public class DisplayMenu {
 		return quit;
 	}
 	
+	/** prompt for movie entries
+     * 
+     * @param movie, library
+     */
     public static void promptForMovieEntry(Movies movie, Library library)
     {
         System.out.println("Movie");
         System.out.println("");
+        
         promptForMovieTitle(movie);
 
         promptForMovieRating(movie);
@@ -168,6 +175,10 @@ public class DisplayMenu {
         ((MoviesLibrary)library).print();
     }
     
+    /** prompt for movie title
+     * 
+     * @param movie
+     */
     public static void promptForMovieTitle(Movies movie) 
     {
         System.out.print("Title name: ");
@@ -183,6 +194,10 @@ public class DisplayMenu {
         }
     }
     
+    /** prompt for movie rating
+     * 
+     * @param movie
+     */
     public static void promptForMovieRating(Movies movie) 
     {
         System.out.print("Movie Rating: ");
@@ -197,7 +212,11 @@ public class DisplayMenu {
             movie.setRating(title);
         }
     }
-    
+
+    /** prompt for music entries
+     * 
+     * @param movie
+     */
     public static void promptMovieFormat(Movies movie) 
     {
         System.out.print("format (VHS, DVD, Blueray): ");
@@ -215,6 +234,11 @@ public class DisplayMenu {
         }
     }
     
+
+    /** prompt for movie rating
+     * 
+     * @param music, library
+     */
     public static void promptForMusicEntry(Music music, Library library)
     {
         System.out.println("Music");
@@ -224,12 +248,14 @@ public class DisplayMenu {
         promptForMusicArtist(music);
         
         promptMusicFormat(music);
-            
-        promptForMusicISBN(music);
         
         ((MusicLibrary)library).print();
     }
 
+    /** prompt for music title
+     * 
+     * @param music
+     */
     public static void promptForMusicTitle(Music music) 
     {
         System.out.print("Title name: ");
@@ -245,6 +271,10 @@ public class DisplayMenu {
         }
     }
 
+    /** prompt for music artist
+     * 
+     * @param music
+     */
     public static void promptForMusicArtist(Music music) 
     {
         System.out.print("Artist name: ");
@@ -260,6 +290,10 @@ public class DisplayMenu {
         }
     }
 
+    /** prompt for music format
+     * 
+     * @param music
+     */
     public static void promptMusicFormat(Music music) 
     {
         System.out.print("format (MP3, Wav, Ogg): ");
@@ -273,21 +307,6 @@ public class DisplayMenu {
         }else
         {
             music.setFormat(format);
-        }
-    }
-
-    public static void promptForMusicISBN(Music music) 
-    {
-        System.out.print("ISBN: ");
-        String isbn = input.nextLine();
-        if (isbn.equals(""))
-        {
-            System.out.println("ISBN cannot be blank.");
-            input.hasNextLine();
-            promptForMusicISBN(music);
-        }else
-        {
-            music.setIsbn(isbn);
         }
     }
     

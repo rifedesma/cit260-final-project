@@ -2,6 +2,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Music Library 
+ * 
+ * @author Desma Rife
+ *
+ */
+
 public class MusicLibrary extends Library{
     private static final String FILE_NAME = "Music.txt";
     private List<Media> musicLibrary = null;
@@ -65,12 +71,12 @@ public class MusicLibrary extends Library{
         }
         
         // print header
-        System.out.printf("%-35s %-35s %-10s %-20s\n", "Title", "Artist", "Format", "ISBN");
+        System.out.printf("%-35s %-35s %-10s\n", "Title", "Artist", "Format");
         System.out.printf("%-80s\n", "------------------------------------------------------------------------------------------------");
         
         for (Media item : musicLibrary)
         {
-            System.out.printf("%-35s %-35s %-10s %-20s\n", item.getTitleName(), ((Music)item).getArtistName(), item.getFormat(), ((Music)item).getIsbn());
+            System.out.printf("%-35s %-35s %-10s\n", item.getTitleName(), ((Music)item).getArtistName(), item.getFormat());
         }
         
     }
@@ -84,7 +90,6 @@ public class MusicLibrary extends Library{
                 music.setTitleName(elements[0]);
                 music.setArtistName(elements[1]);
                 music.setFormat(elements[2]);
-                music.setIsbn(elements[3]);
                 musicLibrary.add(music);
             }catch (IndexOutOfBoundsException outOfBounds)
             {

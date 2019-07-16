@@ -2,6 +2,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Movies Library 
+ * 
+ * @author Desma Rife
+ *
+ */
+
 public class MoviesLibrary extends Library{
     private static final String FILE_NAME = "Movies.txt";
     private List<Media> moviesLibrary = null;
