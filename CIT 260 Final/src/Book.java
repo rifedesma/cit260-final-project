@@ -5,12 +5,9 @@ import java.io.Serializable;
  * @author Purnell Darrell
  *
  */
-public class Book extends Media implements Serializable {
+public class Book extends Media {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4351567213874452358L;
+	
 	private String authorName = "";
 	private String isbn = "";
 	
