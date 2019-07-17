@@ -1,4 +1,3 @@
-import java.io.Serializable;
 
 /** Book derived class for entity
  * 
