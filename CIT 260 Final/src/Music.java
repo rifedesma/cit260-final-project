@@ -14,7 +14,7 @@ public class Music extends Media{
         super();
     }
     
-    public Music(String title, String artist, String isbn, String format) {
+    public Music(String title, String artist, String format) {
         super(title, format);
         
         this.artist = artist;
