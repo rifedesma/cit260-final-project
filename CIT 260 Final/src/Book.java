@@ -55,6 +55,7 @@ public class Book extends Media {
 	@Override
 	public String print()
 	{
+		//print record from book and super class
 		return super.getTitleName() +"|" + authorName + "|" + super.getFormat().toUpperCase() + "|" + isbn + "\n";
 	}
 	

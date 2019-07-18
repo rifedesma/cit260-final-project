@@ -26,14 +26,17 @@ public class BooksLibrary extends Library {
 	 */
 	public void processBooksLibrary(Library libraryObj)
 	{
+		//display entry/view screen
 		int entryViewNumber = DisplayMenu.displayAndPromptEntryViewMenu();
 		
+		// if option number is between 1-4 ok else error message
 		if (entryViewNumber <= 0 || entryViewNumber >= 4)
 		{
 			System.out.println("Must enter a valid option number.");
 			processBooksLibrary(libraryObj);
 		}
 		
+		//select the option number and call appropriate method
 		if (entryViewNumber == 1)
 		{
 			((BooksLibrary)libraryObj).promptForEntry();
@@ -51,6 +54,7 @@ public class BooksLibrary extends Library {
 	 */
 	public void promptForEntry()
 	{
+		//prompt for entry of book
 		book = new Book();
 		DisplayMenu.promptForBookEntry(book, this);
 		processBooksLibrary(this);
@@ -61,6 +65,7 @@ public class BooksLibrary extends Library {
 	 */
 	public void promptForView()
 	{
+		//prompt view screen quit message
 		this.view();
 		String quit = DisplayMenu.promptForView();
 		if (quit.equalsIgnoreCase("q"))
@@ -73,6 +78,7 @@ public class BooksLibrary extends Library {
 	 * 
 	 */
 	public void print() {
+		//output to the book file a book record
 		File fileOutput = FileAccess.getFile(FILE_NAME);
 		FileAccess.writeToFile(fileOutput, book.print());
 	}
@@ -82,13 +88,17 @@ public class BooksLibrary extends Library {
 	 */
 	public void view()
 	{
+		//initialize booksLibrary
+		
 		booksLibrary = new ArrayList<Media>();
 		
 		//create/get file reference for filename
 		File booksFile = FileAccess.getFile(FILE_NAME);
 		if (booksFile != null)
 		{
+			//read file
 			List<String> fileData = FileAccess.readFromFile(booksFile);
+			//create bookslibrary data
 			createBookFromFileData(fileData);
 		}
 		
@@ -96,6 +106,7 @@ public class BooksLibrary extends Library {
 		System.out.printf("%-35s %-35s %-10s %-20s\n", "Title", "Author", "Format", "ISBN");
 		System.out.printf("%-80s\n", "------------------------------------------------------------------------------------------------");
 		
+		// loop through bookslibrary and print to screen
 		for (Media item : booksLibrary)
 		{
 			System.out.printf("%-35s %-35s %-10s %-20s\n", item.getTitleName(), ((Book)item).getAuthorName(), item.getFormat(), ((Book)item).getIsbn());
@@ -108,6 +119,8 @@ public class BooksLibrary extends Library {
 	 * @param fileData
 	 */
 	private void createBookFromFileData(List<String> fileData) {
+		// loop through filedata and create book object
+		// catch outofbounds error
 		for (String line : fileData)
 		{
 			try {
@@ -131,6 +144,7 @@ public class BooksLibrary extends Library {
 	 * @return
 	 */
 	public Book getBook() {
+		//return book object
 		return book;
 	}
 
@@ -140,6 +154,7 @@ public class BooksLibrary extends Library {
 	 * @return
 	 */
 	public List<Media> getBooksLibrary() {
+		//return bookslibrary list
 		return booksLibrary;
 	}
 	
