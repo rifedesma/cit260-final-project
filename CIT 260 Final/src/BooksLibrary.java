@@ -52,7 +52,7 @@ public class BooksLibrary extends Library {
 	public void promptForEntry()
 	{
 		book = new Book();
-		DisplayMenu.promptForEntry(book, this);
+		DisplayMenu.promptForBookEntry(book, this);
 		processBooksLibrary(this);
 	}
 	

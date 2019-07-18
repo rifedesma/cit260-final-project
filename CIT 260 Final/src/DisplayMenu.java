@@ -42,17 +42,17 @@ public class DisplayMenu {
 	}
 	
 	
-	public static void promptForEntry(Book book, Library library)
+	public static void promptForBookEntry(Book book, Library library)
 	{
 		System.out.println("Book");
 		System.out.println("");
-		promptForTitle(book);
+		promptForBookTitle(book);
 
-		promptForAuthor(book);
+		promptForBookAuthor(book);
 		
-		promptFormatItem(book);
+		promptBookFormatItem(book);
 			
-		promptForISBN(book);
+		promptForBookISBN(book);
 		
 		((BooksLibrary)library).print();
 	}
@@ -61,14 +61,14 @@ public class DisplayMenu {
 	 * 
 	 * @param book
 	 */
-	private static void promptForISBN(Book book) {
+	private static void promptForBookISBN(Book book) {
 		System.out.print("ISBN: ");
 		String isbn = input.nextLine();
 		if (isbn.equals(""))
 		{
 			System.out.println("ISBN cannot be blank.");
 			input.hasNextLine();
-			promptForISBN(book);
+			promptForBookISBN(book);
 		}else
 		{
 			book.setIsbn(isbn);
@@ -79,14 +79,14 @@ public class DisplayMenu {
 	 * 
 	 * @param book
 	 */
-	private static void promptForAuthor(Book book) {
+	private static void promptForBookAuthor(Book book) {
 		System.out.print("Author name: ");
 		String author = input.nextLine();
 		if (author.equals(""))
 		{
 			System.out.println("Author cannot be blank.");
 			input.hasNextLine();
-			promptForAuthor(book);
+			promptForBookAuthor(book);
 		}else
 		{
 			book.setAuthorName(author);
@@ -97,14 +97,14 @@ public class DisplayMenu {
 	 * 
 	 * @param book
 	 */
-	private static void promptForTitle(Book book) {
+	private static void promptForBookTitle(Book book) {
 		System.out.print("Title name: ");
 		String title = input.nextLine();
 		if (title.equals(""))
 		{
 			System.out.println("Title cannot be blank.");
 			input.hasNextLine();
-			promptForTitle(book);
+			promptForBookTitle(book);
 		}else 
 		{
 			book.setTitleName(title);
@@ -115,7 +115,7 @@ public class DisplayMenu {
 	 * 
 	 * @param book
 	 */
-	private static void promptFormatItem(Book book) {
+	private static void promptBookFormatItem(Book book) {
 		System.out.print("format (Hard, Soft, Audio): ");
 		String format = input.nextLine();
 		if (!format.equalsIgnoreCase("hard") && 
@@ -123,7 +123,7 @@ public class DisplayMenu {
 				!format.equalsIgnoreCase("audio"))
 		{
 			System.out.println("Format must be either 'Hard, Soft or Audio'.");
-			promptFormatItem(book);
+			promptBookFormatItem(book);
 		}else
 		{
 			
