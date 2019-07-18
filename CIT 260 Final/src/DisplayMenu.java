@@ -15,6 +15,10 @@ public class DisplayMenu {
 		
 	}
 	
+	/** display and prompt for the libraries menu
+	 * 
+	 * @return
+	 */
 	public static int displayAndPromptLibraryMenu()
 	{
 		System.out.println("Libraries:");
@@ -29,6 +33,10 @@ public class DisplayMenu {
 		return PromptUser.promptForInteger("Select library (by number): ");
 	}
 	
+	/** display and prompt for the entry or view options menu 
+	 * 
+	 * @return
+	 */
 	public static int displayAndPromptEntryViewMenu()
 	{
 		System.out.println("");
@@ -41,7 +49,11 @@ public class DisplayMenu {
 		return PromptUser.promptForInteger("Select option (by number): ");
 	}
 	
-	
+	/** prompt for the entry screen of a book
+	 * 
+	 * @param book
+	 * @param library
+	 */
 	public static void promptForBookEntry(Book book, Library library)
 	{
 		System.out.println("Book");
