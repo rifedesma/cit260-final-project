@@ -31,7 +31,7 @@ public class Music extends Media{
     }
     
     /*
-     * Print to console "Song Title | Artist's Name | Song's Format"
+     * Print to file "Song Title | Artist's Name | Song's Format"
      */
     @Override
     public String print()
