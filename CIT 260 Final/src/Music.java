@@ -30,6 +30,9 @@ public class Music extends Media{
         return this.artist;
     }
     
+    /*
+     * Print to console "Song Title | Artist's Name | Song's Format"
+     */
     @Override
     public String print()
     {

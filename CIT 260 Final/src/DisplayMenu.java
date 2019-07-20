@@ -212,16 +212,18 @@ public class DisplayMenu {
      */
     public static void promptForMovieRating(Movies movie) 
     {
-        System.out.print("Movie Rating: ");
+        System.out.print("Movie Rating (G, PG, PG13, R): ");
         String title = input.nextLine();
-        if (title.equals(""))
-        {
-            System.out.println("Rating cannot be blank.");
-            input.hasNextLine();
-            promptForMovieTitle(movie);
+        if (!title.contains("R") && !title.contains("PG13") && !title.contains("PG") && !title.contains("G"))
+        {    
+        System.out.println("Not a valid rating. Must be: G, PG, PG13, or R");
+        input.hasNextLine();
+        promptForMovieRating(movie);        
         }else 
-        {
             movie.setRating(title);
+
+            
+        {
         }
     }
 

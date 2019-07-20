@@ -1,1 +1,6 @@
-new book|my author|SOFT|isbn189238
+A History of the Low Countries|Paul Arblaster|SOFT|978-1-137-61186-4
+A Mighty Fortress|Steven Ozment|HARD|0-06-620925-0
+The German-Americans|J. Rippley|HARD|0-8057-8405-5
+Dreams in the Golden Country|Katheryn Lasky|HARD|0-590-02973-8
+Voyage on the Great Titanic|Ellen White|HARD|0-590-96273-6
+Standing in the Light|Mary Pope Osborne|HARD|0-590-13462-0

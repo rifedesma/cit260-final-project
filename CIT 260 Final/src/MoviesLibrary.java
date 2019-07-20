@@ -35,8 +35,11 @@ public class MoviesLibrary extends Library{
         }
     }
 
-    /** prompt for Book entry fields
-     * 
+    /** 
+     * Print to console and prompt user for:
+     * " Title Name:
+     *   Movie Rating:
+     *   format (VHS, DVD, Blueray): "
      */
     public void promptForEntry()
     {
@@ -45,8 +48,9 @@ public class MoviesLibrary extends Library{
         processMoviesLibrary(this);
     }
     
-    /** prompt to quit view screen
-     * 
+    /** 
+     * Print to console and prompt user for:
+     * "Enter 'q' to go back to options menu: "
      */
     public void promptForView()
     {
@@ -58,6 +62,12 @@ public class MoviesLibrary extends Library{
         }
     }
     
+    /*
+     * Print to console:
+     * "Title        Rating        Format
+     * ------------------------------------------
+     *  Movie Title  Movie Rating  Movie Format    "
+     */
     public void view()
     {
         moviesLibrary = new ArrayList<Media>();

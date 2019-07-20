@@ -13,6 +13,12 @@ public class MusicLibrary extends Library{
     private List<Media> musicLibrary = null;
     private Music music = null;
     
+    /*
+     * Print to console and prompt the user:
+     * " 1 - Enter entries
+     *   2 - View entries
+     *   3 - Back to library selection menu"
+     */
     public void processMusicLibrary(Library libraryObj)
     {
         int entryViewNumber = DisplayMenu.displayAndPromptEntryViewMenu();
@@ -35,8 +41,13 @@ public class MusicLibrary extends Library{
         }
     }
     
-    /** prompt for Book entry fields
+    /** 
+     * Print to console and prompt the user:
+     * "Music
      * 
+     *  Title Name:
+     *  Artist's Name:
+     *  format (MP3, Wav, Ogg): "
      */
     public void promptForEntry()
     {
@@ -45,8 +56,9 @@ public class MusicLibrary extends Library{
         processMusicLibrary(this);
     }
 
-    /** prompt to quit view screen
-     * 
+    /** 
+     * Print to console and prompt the user:
+     * "Enter 'q' to go back to options menu: "
      */
     public void promptForView()
     {
@@ -58,6 +70,12 @@ public class MusicLibrary extends Library{
         }
     }
     
+    /*
+     * Print to console:
+     * "Title         Artist           Format
+     * -------------------------------------------
+     * "Song Title    Artist's Name    Song Format
+     */
     public void view()
     {
         musicLibrary = new ArrayList<Media>();
