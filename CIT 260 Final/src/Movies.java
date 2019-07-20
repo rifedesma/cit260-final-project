@@ -28,6 +28,9 @@ public class Movies extends Media{
         return this.rating;
     }
     
+    /*
+     * Print to console "Movie's Title | Movies Rating | Movie's Format"
+     */
     @Override
     public String print()
     {
