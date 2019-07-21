@@ -1,5 +1,4 @@
 
-import java.util.Scanner;
 
 /** Displays menus 
  * 
@@ -8,8 +7,7 @@ import java.util.Scanner;
  */
 public class DisplayMenu {
 
-	private static Scanner input = new Scanner(System.in);
-	
+		
 	private DisplayMenu()
 	{
 		
@@ -58,6 +56,7 @@ public class DisplayMenu {
 	{
 		System.out.println("Book");
 		System.out.println("");
+		
 		promptForTitle(book);
 
 		promptForBookAuthor(book);
@@ -68,7 +67,7 @@ public class DisplayMenu {
 		
 		((BooksLibrary)library).print();
 	}
-
+	
 	/** prompt for ISBN and saved to book object
 	 * 
 	 * @param book
@@ -77,20 +76,19 @@ public class DisplayMenu {
 		
 		while (book.getIsbn() == null || (book.getIsbn() != null && book.getIsbn().equals("")))
 		{
-			//System.out.print("ISBN: ");
+			
 			String isbn = PromptUser.promptForLine("ISBN: ");
 			if (isbn.equals(""))
 			{
 				System.out.println("ISBN cannot be blank.");
-				//input.hasNextLine();
-				//promptForBookISBN(book);
+				
 			}else
 			{
 				book.setIsbn(isbn);
 			}
 		}	
 	}
-
+	
 	/** prompt for author and saved to book object
 	 * 
 	 * @param book
@@ -99,20 +97,20 @@ public class DisplayMenu {
 		
 		while (book.getAuthorName() == null || (book.getAuthorName() != null && book.getAuthorName().equals("")))
 		{
-			//System.out.print("Author name: ");
+			
 			String author = PromptUser.promptForLine("Author name: ");
 			if (author.equals(""))
 			{
 				System.out.println("Author cannot be blank.");
-				//input.hasNextLine();
-				//promptForBookAuthor(book);
+				
 			}else
 			{
 				book.setAuthorName(author);
 			}
 		}	
 	}
-
+	
+	
 	/** prompt for title and saved to Media object
 	 * 
 	 * @param book
@@ -121,13 +119,12 @@ public class DisplayMenu {
 		
 		while (media.getTitleName() == null || (media.getTitleName() != null && media.getTitleName().equals("")))
 		{
-			//System.out.print("Title name: ");
+			
 			String title = PromptUser.promptForLine("Title name: ");
 			if (title.equals(""))
 			{
 				System.out.println("Title cannot be blank.");
-				//input.hasNextLine();
-				//promptForTitle(media);
+				
 			}else 
 			{
 				media.setTitleName(title);
@@ -183,29 +180,7 @@ public class DisplayMenu {
 			
 	}
 	
-	/** leave the media instruction's view
-     * 
-     */
-	public static String promptForView()
-	{
-		String quit = "";
-		while (quit.equals("") || !quit.equalsIgnoreCase("q"))
-		{
 		
-			System.out.println("");
-			//System.out.print("Enter 'q' to go back to options menu: ");
-			quit = PromptUser.promptForString("Enter 'q' to go back to options menu: ");
-			if (!quit.equalsIgnoreCase("q"))
-			{
-				System.out.print("Must enter 'q' to go back.");
-				//input.nextLine();
-				///quit = promptForView();
-			}
-		
-		}
-		return quit;
-	}
-	
 	/** prompt for movie entries
      * 
      * @param movie, library
@@ -224,59 +199,33 @@ public class DisplayMenu {
         ((MoviesLibrary)library).print();
     }
     
-    /** prompt for movie title
-     * 
-     * @param movie
-     */
-	/*
-	 * public static void promptForMovieTitle(Movies movie) {
-	 * System.out.print("Title name: "); String title = input.nextLine(); if
-	 * (title.equals("")) { System.out.println("Title cannot be blank.");
-	 * input.hasNextLine(); promptForMovieTitle(movie); }else {
-	 * movie.setTitleName(title); } }
-	 */
-    
     /** prompt for movie rating
      * 
      * @param movie
      */
     public static void promptForMovieRating(Movies movie) 
     {
-        System.out.print("Movie Rating (G, PG, PG13, R): ");
-        String rating = input.nextLine();
-        if (!rating.equalsIgnoreCase("R") && !rating.equalsIgnoreCase("PG13") && !rating.equalsIgnoreCase("PG") && !rating.equalsIgnoreCase("G"))
-        {    
-	        System.out.println("Not a valid rating. Must be: G, PG, PG13, or R");
-	        input.hasNextLine();
-	        promptForMovieRating(movie);        
-        }else 
-            movie.setRating(rating);
+	    while (movie.getRating() == null || (movie.getRating() != null && movie.getRating().equals(""))) 
+	    {
+    		
+	        String rating = PromptUser.promptForString("Movie Rating (G, PG, PG13, R): ");
+	        if (!rating.equalsIgnoreCase("R") && !rating.equalsIgnoreCase("PG13") && !rating.equalsIgnoreCase("PG") && !rating.equalsIgnoreCase("G"))
+	        {    
+		        System.out.println("Not a valid rating. Must be: G, PG, PG13, or R");        
+	        }else 
+	            movie.setRating(rating);
+	    }
     }
-
+    
     /** prompt for music entries
      * 
      * @param movie
-     */
-	/*
-	 * public static void promptMovieFormat(Movies movie) {
-	 * System.out.print("format (VHS, DVD, Blueray): "); String format =
-	 * input.nextLine(); if (!format.equalsIgnoreCase("vhs") &&
-	 * !format.equalsIgnoreCase("dvd") && !format.equalsIgnoreCase("blueray")) {
-	 * System.out.println("Format must be either 'VHS, DVD or Blueray'.");
-	 * promptMovieFormat(movie); }else {
-	 * 
-	 * movie.setFormat(format); } }
-	 */
-    
-
-    /** prompt for movie rating
-     * 
-     * @param music, library
      */
     public static void promptForMusicEntry(Music music, Library library)
     {
         System.out.println("Music");
         System.out.println("");
+        
         promptForTitle(music);
 
         promptForMusicArtist(music);
@@ -285,49 +234,47 @@ public class DisplayMenu {
         
         ((MusicLibrary)library).print();
     }
-
-    /** prompt for music title
-     * 
-     * @param music
-     */
-	/*
-	 * public static void promptForMusicTitle(Music music) {
-	 * System.out.print("Title name: "); String title = input.nextLine(); if
-	 * (title.equals("")) { System.out.println("Title cannot be blank.");
-	 * input.hasNextLine(); promptForMusicTitle(music); }else {
-	 * music.setTitleName(title); } }
-	 */
-
+    
     /** prompt for music artist
      * 
      * @param music
      */
     public static void promptForMusicArtist(Music music) 
     {
-        System.out.print("Artist name: ");
-        String artist = input.nextLine();
-        if (artist.equals(""))
-        {
-            System.out.println("Artist's name cannot be blank.");
-            input.hasNextLine();
-            promptForMusicArtist(music);
-        }else 
-        {
-            music.setArtistName(artist);
-        }
+    	while (music.getArtistName() == null || (music.getArtistName() != null && music.getArtistName().equals("")))
+    	{
+	        String artist = PromptUser.promptForLine("Artist name: ");
+	        if (artist.equals(""))
+	        {
+	            System.out.println("Artist's name cannot be blank.");
+	           
+	        }else 
+	        {
+	            music.setArtistName(artist);
+	        }
+    	}
     }
 
-    /** prompt for music format
+    /** leave the media instruction's view
      * 
-     * @param music
      */
-	/*
-	 * public static void promptMusicFormat(Music music) {
-	 * System.out.print("format (MP3, Wav, Ogg): "); String format =
-	 * input.nextLine(); if (!format.equalsIgnoreCase("MP3") &&
-	 * !format.equalsIgnoreCase("Wav") && !format.equalsIgnoreCase("Ogg")) {
-	 * System.out.println("Format must be either 'MP3, Wav or Ogg'.");
-	 * promptMusicFormat(music); }else { music.setFormat(format); } }
-	 */
-    
+	public static String promptForView()
+	{
+		String quit = "";
+		while (quit.equals("") || !quit.equalsIgnoreCase("q"))
+		{
+		
+			System.out.println("");
+			
+			quit = PromptUser.promptForString("Enter 'q' to go back to options menu: ");
+			if (!quit.equalsIgnoreCase("q"))
+			{
+				System.out.print("Must enter 'q' to go back.");
+				
+			}
+		
+		}
+		return quit;
+	}
+
 }

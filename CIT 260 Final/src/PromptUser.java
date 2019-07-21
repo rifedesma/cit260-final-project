@@ -39,7 +39,7 @@ public class PromptUser {
 			input.nextLine();
 			value = promptForInteger(message);
 		}
-		
+		input.nextLine();
 		return value;
 	}
 	
@@ -82,5 +82,4 @@ public class PromptUser {
 		
 		return value;
 	}
-	
 }
