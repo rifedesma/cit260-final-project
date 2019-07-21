@@ -29,7 +29,7 @@ public class Movies extends Media{
     }
     
     /*
-     * Print to console "Movie's Title | Movies Rating | Movie's Format"
+     * Print to file "Movie's Title | Movies Rating | Movie's Format"
      */
     @Override
     public String print()
