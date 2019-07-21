@@ -17,7 +17,11 @@ public class PromptUser {
 	}
 	
 	
-	/** Prompt user for an integer, by displaying message provided */
+	/** Prompt user for an integer, by displaying message provided
+	 * 
+	 * @param message
+	 * @return
+	 */
 	public static int promptForInteger(String message)
 	{
 		int value = 0;
@@ -39,5 +43,44 @@ public class PromptUser {
 		return value;
 	}
 	
+	/** Prompt user for a string (includes spaces) and retrieve the entire line
+	 * 
+	 * @param message
+	 * @return
+	 */
+	public static String promptForLine(String message)
+	{
+		String line = "";
+		try {
+			System.out.print(message);
+			line = input.nextLine();
+		}finally
+		{
+			
+		}
+		
+		
+		return line;
+	}
+	
+	/** Prompt User for a string (single word)
+	 * 
+	 * @param message
+	 * @return
+	 */
+	public static String promptForString(String message)
+	{
+		String value = "";
+		try {
+			System.out.print(message);
+			value = input.next();
+		}catch (NoSuchElementException nosuch)
+		{
+			System.out.println("Must enter a value, cannot be blank.");
+			input.nextLine();
+		}
+		
+		return value;
+	}
 	
 }
