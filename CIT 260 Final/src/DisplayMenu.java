@@ -58,91 +58,75 @@ public class DisplayMenu {
 	{
 		System.out.println("Book");
 		System.out.println("");
-		promptForBookTitle(book);
-
-		promptForBookAuthor(book);
 		
-		promptBookFormatItem(book);
+		book.setTitleName(PromptUser.promptForString("Title: "));
+		
+		book.setAuthorName(PromptUser.promptForString("Author Name: "));
+		
+		String format = PromptUser.promptForString("Format (Hard, Soft, Audio): ");
+		while (!format.equalsIgnoreCase("hard") && !format.equalsIgnoreCase("soft") && !format.equalsIgnoreCase("audio")) {
+		    System.out.println("Invalid book format: " + format);
+            format = PromptUser.promptForString("Format (Hard, Soft, Audio): ");
+		}
+		book.setFormat(format);
 			
-		promptForBookISBN(book);
+		book.setIsbn(PromptUser.promptForString("ISBN: "));
 		
 		((BooksLibrary)library).print();
 	}
-
-	/** prompt for ISBN and saved to book object
-	 * 
-	 * @param book
-	 */
-	private static void promptForBookISBN(Book book) {
-		System.out.print("ISBN: ");
-		String isbn = input.nextLine();
-		if (isbn.equals(""))
-		{
-			System.out.println("ISBN cannot be blank.");
-			input.hasNextLine();
-			promptForBookISBN(book);
-		}else
-		{
-			book.setIsbn(isbn);
-		}
-	}
-
-	/** prompt for author and saved to book object
-	 * 
-	 * @param book
-	 */
-	private static void promptForBookAuthor(Book book) {
-		System.out.print("Author name: ");
-		String author = input.nextLine();
-		if (author.equals(""))
-		{
-			System.out.println("Author cannot be blank.");
-			input.hasNextLine();
-			promptForBookAuthor(book);
-		}else
-		{
-			book.setAuthorName(author);
-		}
-	}
-
-	/** prompt for title and saved to book object
-	 * 
-	 * @param book
-	 */
-	private static void promptForBookTitle(Book book) {
-		System.out.print("Title name: ");
-		String title = input.nextLine();
-		if (title.equals(""))
-		{
-			System.out.println("Title cannot be blank.");
-			input.hasNextLine();
-			promptForBookTitle(book);
-		}else 
-		{
-			book.setTitleName(title);
-		}
-	}
-
-	/** prompt for format item and saved to book object
-	 * 
-	 * @param book
-	 */
-	private static void promptBookFormatItem(Book book) {
-		System.out.print("format (Hard, Soft, Audio): ");
-		String format = input.nextLine();
-		if (!format.equalsIgnoreCase("hard") && 
-				!format.equalsIgnoreCase("soft") &&
-				!format.equalsIgnoreCase("audio"))
-		{
-			System.out.println("Format must be either 'Hard, Soft or Audio'.");
-			promptBookFormatItem(book);
-		}else
-		{
-			
-			book.setFormat(format);
-		}
-	}
 	
+	/** prompt for movie entries
+     * 
+     * @param movie, library
+     */
+    public static void promptForMovieEntry(Movies movie, Library library)
+    {
+        System.out.println("Movie");
+        System.out.println("");
+        
+        movie.setTitleName(PromptUser.promptForString("Title: "));
+
+        String rating= PromptUser.promptForString("Rating (G, PG, PG13, R): ");
+        while (!rating.equals("G") && !rating.equals("PG") && !rating.equals("PG13") && !rating.equals("R")) {
+            System.out.println("Invalid movie rating: " + rating);
+            rating = PromptUser.promptForString("Rating (G, PG, PG13, R): ");
+        }
+        movie.setRating(rating);
+        
+        String format= PromptUser.promptForString("Format (VHS, DVD, Blueray: ");
+        while (!format.equals("VHS") && !format.equals("DVD") && !format.equals("Blueray")) {
+            System.out.println("Invalid movie format: " + format);
+            format = PromptUser.promptForString("Format (VHS, DVD, Blueray: ");
+        }
+        movie.setFormat(format);
+        
+        ((MoviesLibrary)library).print();
+    }
+    
+
+    /** prompt for movie rating
+     * 
+     * @param music, library
+     */
+    public static void promptForMusicEntry(Music music, Library library)
+    {
+        System.out.println("Music");
+        System.out.println("");
+        
+        music.setTitleName(PromptUser.promptForString("Title: "));
+
+        music.setArtistName(PromptUser.promptForString("Artist Name: "));
+        
+        String format = PromptUser.promptForString("Format (MP3, Wav, Ogg: ");
+        while (!format.equals("MP3") && !format.equals("Wav") && !format.equals("Ogg")) {
+            System.out.println("Invalid music format: " + format);
+            format = PromptUser.promptForString("Format (MP3, Wav, Ogg: ");
+        }
+        music.setFormat(format);
+        
+        ((MusicLibrary)library).print();
+    }
+
 	/** leave the media instruction's view
      * 
      */
@@ -168,160 +152,5 @@ public class DisplayMenu {
 		}
 		return quit;
 	}
-	
-	/** prompt for movie entries
-     * 
-     * @param movie, library
-     */
-    public static void promptForMovieEntry(Movies movie, Library library)
-    {
-        System.out.println("Movie");
-        System.out.println("");
-        
-        promptForMovieTitle(movie);
 
-        promptForMovieRating(movie);
-        
-        promptMovieFormat(movie);
-        
-        ((MoviesLibrary)library).print();
-    }
-    
-    /** prompt for movie title
-     * 
-     * @param movie
-     */
-    public static void promptForMovieTitle(Movies movie) 
-    {
-        System.out.print("Title name: ");
-        String title = input.nextLine();
-        if (title.equals(""))
-        {
-            System.out.println("Title cannot be blank.");
-            input.hasNextLine();
-            promptForMovieTitle(movie);
-        }else 
-        {
-            movie.setTitleName(title);
-        }
-    }
-    
-    /** prompt for movie rating
-     * 
-     * @param movie
-     */
-    public static void promptForMovieRating(Movies movie) 
-    {
-        System.out.print("Movie Rating (G, PG, PG13, R): ");
-        String title = input.nextLine();
-        if (!title.contains("R") && !title.contains("PG13") && !title.contains("PG") && !title.contains("G"))
-        {    
-        System.out.println("Not a valid rating. Must be: G, PG, PG13, or R");
-        input.hasNextLine();
-        promptForMovieRating(movie);        
-        }else 
-            movie.setRating(title);
-
-            
-        {
-        }
-    }
-
-    /** prompt for music entries
-     * 
-     * @param movie
-     */
-    public static void promptMovieFormat(Movies movie) 
-    {
-        System.out.print("format (VHS, DVD, Blueray): ");
-        String format = input.nextLine();
-        if (!format.equalsIgnoreCase("vhs") && 
-                !format.equalsIgnoreCase("dvd") &&
-                !format.equalsIgnoreCase("blueray"))
-        {
-            System.out.println("Format must be either 'VHS, DVD or Blueray'.");
-            promptMovieFormat(movie);
-        }else
-        {
-            
-            movie.setFormat(format);
-        }
-    }
-    
-
-    /** prompt for movie rating
-     * 
-     * @param music, library
-     */
-    public static void promptForMusicEntry(Music music, Library library)
-    {
-        System.out.println("Music");
-        System.out.println("");
-        promptForMusicTitle(music);
-
-        promptForMusicArtist(music);
-        
-        promptMusicFormat(music);
-        
-        ((MusicLibrary)library).print();
-    }
-
-    /** prompt for music title
-     * 
-     * @param music
-     */
-    public static void promptForMusicTitle(Music music) 
-    {
-        System.out.print("Title name: ");
-        String title = input.nextLine();
-        if (title.equals(""))
-        {
-            System.out.println("Title cannot be blank.");
-            input.hasNextLine();
-            promptForMusicTitle(music);
-        }else 
-        {
-            music.setTitleName(title);
-        }
-    }
-
-    /** prompt for music artist
-     * 
-     * @param music
-     */
-    public static void promptForMusicArtist(Music music) 
-    {
-        System.out.print("Artist name: ");
-        String artist = input.nextLine();
-        if (artist.equals(""))
-        {
-            System.out.println("Artist's name cannot be blank.");
-            input.hasNextLine();
-            promptForMusicArtist(music);
-        }else 
-        {
-            music.setArtistName(artist);
-        }
-    }
-
-    /** prompt for music format
-     * 
-     * @param music
-     */
-    public static void promptMusicFormat(Music music) 
-    {
-        System.out.print("format (MP3, Wav, Ogg): ");
-        String format = input.nextLine();
-        if (!format.equalsIgnoreCase("MP3") && 
-                !format.equalsIgnoreCase("Wav") &&
-                !format.equalsIgnoreCase("Ogg"))
-        {
-            System.out.println("Format must be either 'MP3, Wav or Ogg'.");
-            promptMusicFormat(music);
-        }else
-        {
-            music.setFormat(format);
-        }
-    }
-    
 }

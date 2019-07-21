@@ -35,9 +35,22 @@ public class PromptUser {
 			input.nextLine();
 			value = promptForInteger(message);
 		}
-		
+		input.nextLine();
 		return value;
 	}
 	
-	
+	public static String promptForString(String message) {
+	    String value = "";
+	    
+        System.out.print(message);
+        value = input.nextLine();
+        
+        if (value.isEmpty()) {
+            System.out.println("Input cannot be blank.");
+            //input.nextLine();
+            value = promptForString(message);
+        }
+        
+        return value;
+	}
 }
