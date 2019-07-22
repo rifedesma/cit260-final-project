@@ -41,6 +41,7 @@ public class MoviesLibrary extends Library{
      *   Movie Rating:
      *   format (VHS, DVD, Blueray): "
      */
+    @Override
     public void promptForEntry()
     {
         movie = new Movies();
@@ -52,6 +53,7 @@ public class MoviesLibrary extends Library{
      * Print to console and prompt user for:
      * "Enter 'q' to go back to options menu: "
      */
+    @Override
     public void promptForView()
     {
         this.view();
@@ -68,6 +70,7 @@ public class MoviesLibrary extends Library{
      * ------------------------------------------
      *  Movie Title  Movie Rating  Movie Format    "
      */
+    @Override
     public void view()
     {
         moviesLibrary = new ArrayList<Media>();
@@ -111,6 +114,7 @@ public class MoviesLibrary extends Library{
     /** print to file
      * 
      */
+    @Override
     public void print() {
         File fileOutput = FileAccess.getFile(FILE_NAME);
         FileAccess.writeToFile(fileOutput, movie.print());

@@ -34,6 +34,6 @@ public class Movies extends Media{
     @Override
     public String print()
     {
-        return super.getTitleName() +"|" + this.rating + "|" + super.getFormat().toUpperCase() + "\n";
+        return super.getTitleName() +"|" + this.rating.toUpperCase() + "|" + super.getFormat().toUpperCase() + "\n";
     }
 }

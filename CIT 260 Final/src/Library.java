@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
  * @author Purnell Darrell
  *
  */
-public class Library {
+public abstract class Library {
 
 		
 	protected Library()
@@ -72,6 +72,10 @@ public class Library {
 				libraryObj = new BooksLibrary();
 				((BooksLibrary)libraryObj).processBooksLibrary(libraryObj);
 				break;
+			//quit application
+			case 4:
+				libraryObj = null;
+				break;
 			default:
 				//quit application, do nothing
 		}
@@ -95,5 +99,25 @@ public class Library {
 		}
 		return elements;
 	}
+	
+	/** Prints to file
+	 * 
+	 */
+	public abstract void print();
+	
+	/** Displays to screen
+	 * 
+	 */
+	public abstract void view();
+	
+	/** Displays the Entry menu option
+	 * 
+	 */
+	public abstract void promptForEntry();
+	
+	/** Displays the View menu option
+	 * 
+	 */
+	public abstract void promptForView();
 	
 }

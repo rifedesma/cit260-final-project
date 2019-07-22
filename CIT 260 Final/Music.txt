@@ -1,3 +1,5 @@
-title of music|artist|MP3
-
-Title|Artist|MP3
+'N Sync|'N Sync|MP3
+Spellbound|Paula Abdul|MP3
+Pat Benatar|Pat Benatar|MP3
+Rapture|Anita Baker|MP3
+Eat the Music|Kate Bush|MP3

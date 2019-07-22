@@ -1,5 +1,7 @@
-don't know why the first time the prompt goes too far|PG|DVD
-try again|PG|VHS
-another title|pg13|BLUERAY
-title change|g|DVD
-Movie Title|G|VHS
+GalaxyQuest|PG|BLUERAY
+Last Holiday|PG13|BLUERAY
+Thunderbirds|PG|DVD
+Hook|PG|DVD
+Peter Pan|PG|DVD
+Peaceful Warrior|PG13|DVD
+Johnny Mnemonic|R|DVD

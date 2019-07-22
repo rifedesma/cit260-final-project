@@ -49,6 +49,7 @@ public class MusicLibrary extends Library{
      *  Artist's Name:
      *  format (MP3, Wav, Ogg): "
      */
+    @Override
     public void promptForEntry()
     {
         music = new Music();
@@ -60,6 +61,7 @@ public class MusicLibrary extends Library{
      * Print to console and prompt the user:
      * "Enter 'q' to go back to options menu: "
      */
+    @Override
     public void promptForView()
     {
         this.view();
@@ -76,6 +78,7 @@ public class MusicLibrary extends Library{
      * -------------------------------------------
      * "Song Title    Artist's Name    Song Format
      */
+    @Override
     public void view()
     {
         musicLibrary = new ArrayList<Media>();
@@ -119,6 +122,7 @@ public class MusicLibrary extends Library{
     /** print to file
      * 
      */
+    @Override
     public void print() {
         File fileOutput = FileAccess.getFile(FILE_NAME);
         FileAccess.writeToFile(fileOutput, music.print());

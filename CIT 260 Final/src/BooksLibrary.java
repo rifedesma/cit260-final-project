@@ -52,6 +52,7 @@ public class BooksLibrary extends Library {
 	/** prompt for Book entry fields
 	 * 
 	 */
+	@Override
 	public void promptForEntry()
 	{
 		//prompt for entry of book
@@ -63,6 +64,7 @@ public class BooksLibrary extends Library {
 	/** prompt to quit view screen
 	 * 
 	 */
+	@Override
 	public void promptForView()
 	{
 		//prompt view screen quit message
@@ -77,6 +79,7 @@ public class BooksLibrary extends Library {
 	/** print to file
 	 * 
 	 */
+	@Override
 	public void print() {
 		//output to the book file a book record
 		File fileOutput = FileAccess.getFile(FILE_NAME);
@@ -86,6 +89,7 @@ public class BooksLibrary extends Library {
 	/** view book array data
 	 * 
 	 */
+	@Override
 	public void view()
 	{
 		//initialize booksLibrary
